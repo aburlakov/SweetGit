@@ -8,16 +8,19 @@ angular.module("sweetGit", [])
             $scope.loaded = false;
             $http.get(GITHUB_API_URL + $scope.username)
                 .then(function(response) {
-                    response.data.name = response.data.name;
                     $scope.user = response.data;
                     $scope.loaded = true;
                 });
             $http.get(GITHUB_API_URL + $scope.username + "/repos")
-                .then(function successGetRepos(response, $scope) {
-                    var reposFound = response.data.length > 0;
-                    if(reposFound){
-                        //todo: count stars
-                    }
+                .then(function (response) {
+                   // var reposFound = response.data.length > 0;
+                   // var allStars = 0;
+                 //   if(reposFound){
+                 //      for(var repo in response.data.body){
+                 //          allStars += repo.stargazers_count;
+                 //      }
+                 //   }
+                    $scope.allStars = response.repos;
                 });
             }
         }
