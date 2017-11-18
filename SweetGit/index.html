@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sweetGit">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sweet Git</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="app/bower_components/angular/angular.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/sweet-git-widget/sweet-git-controller.js"></script>
+</head>
+
+<body ng-controller="sweetGitController">
+
+<div id="w">
+    <div>
+        <h1>Let me give you a Sweet Git Widget</h1>
+        <h3>Write your GitHub username:</h3>
+
+        <input type="text" id="github-username" ng-model="username" placeholder="Github username...">
+        <button type="button" class="btn btn-outline-secondary" ng-click="getGitInfo()">ok, go on</button>
+
+        <div id="github-api" class="clearfix"></div>
+    </div>
+
+    <!-- the actual place to generate sweet widget-->
+    <!--avatar, name and username, followers, following, repos count, stars find clever way-->
+    <div ng-show="loaded">
+
+        <h2> {{user.name}}
+            <span class="smallname">(@<a href="{{user.html_url}}" target="_blank"> {{user.login}} </a>)</span>
+        </h2>
+
+        <div class="user-selected-info">
+            <div class="avi">
+                <a href="{{ user.html_url }}" target="_blank">
+                    <img src="{{ user.avatar_url }}" width="80" height="80" alt="{{ user.login }}"></a>
+            </div>
+            Followers: {{ user.followers }}<br>
+            Following: {{ user.following }}<br>
+            Repositories: {{ user.public_repos }}</p>
+        </div>
+            <!-- stars here maybe-->
+    </div>
+</div>
+</body>
+</html>
+<script src="app/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="app/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
