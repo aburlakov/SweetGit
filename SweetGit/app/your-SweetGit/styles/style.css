@@ -1,0 +1,189 @@
+/*fonts*/
+@font-face {
+    font-family: 'Evolventa-Regular';
+    src: url("../fonts/Evolventa-Regular.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: "that i love you";
+    src: url("../fonts/that i love you - TTF.ttf");
+}
+
+/*main html*/
+* {
+    margin: 0;
+    padding: 0;
+}
+html{
+    height: 100%;
+    min-height: 100%;
+}
+body, main {
+    height: 100%;
+    overflow: scroll;
+    font-family: "Evolventa-Regular", sans-serif;
+}
+html, body{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+footer,
+footer p{
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;
+    text-align: center;
+}
+h1, h2{
+    font-family: "Evolventa-Regular", sans-serif;
+    padding: 2.5rem 0 0 2.5rem;
+    text-align: center;
+}
+h3{
+    padding-top: 100px;
+    text-align: center;
+}
+footer,
+footer p{
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;
+    text-align: center;
+}
+
+/*navigation bar*/
+.navbar{
+    background: #EFEFEF !important;
+}
+.brand{
+    font-family:"Evolventa-Regular", sans-serif;
+    font-weight: bold;
+}
+.hearts{
+    font: 2.0rem "that i love you", sans-serif;
+}
+.navbar-brand{
+    font-family: "Evolventa-Regular", sans-serif;
+    color: #1E1E1E !important;
+    transition: .3s all ease-in;
+}
+.navbar-brand:hover{
+    color: #8E8E8E !important;
+    cursor: pointer;
+}
+
+/*sections*/
+.section{
+    background: white;
+}
+
+/*greeting screen*/
+.image-feature{
+    /*background: url("") no-repeat fixed;*/
+    height: 24rem;
+    position: static;
+    background-size: cover;
+}
+.greeting{
+    color: #EFEFEF;
+    padding-top: 7%;
+    text-align: center;
+    margin: 1.25rem;
+}
+.my-photo{
+    width: 100%;
+    height: 100%;
+    max-width: 21%;
+    margin: -50px;
+    opacity:0;
+    -moz-transition: opacity 1s; /* Firefox 4 */
+    -webkit-transition: opacity 1s; /* Safari and Chrome */
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+
+}
+.my-name{
+    font: 2.4rem "Evolventa-Regular", sans-serif;
+    font-weight: bold;
+    color: #f1f2e8;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+h2{
+    top: 50px;
+    margin: 10px;
+}
+.col-sm-3{
+    bottom: -40px;
+}
+h4, h6{
+    bottom: -40px;
+    text-align: center;
+}
+
+/*intro screen*/
+.intro{
+    padding: .5rem 0 0 2.5rem;
+}
+.intro-photo{
+    width: 400px;
+}
+.intro-column{
+    float: none;
+    margin: 0 auto;
+}
+.center {
+    left: 50%;
+    top: 50%;
+}
+
+/*social icons*/
+.social-icons {
+    padding: 100px;
+    text-align: center;
+}
+.fa-contact-screen{
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    transition: .3s all ease-in;
+}
+.fa-contact-screen:hover{
+    color: #8E8E8E;
+    cursor: pointer;
+}
+
+/*contact me section*/
+.contact{
+    padding: 0 2rem;
+}
+.image-feature-contact-section{
+   /* background: url("../images/me/my-kitty-big.jpg") no-repeat fixed;*/
+    height: 24rem;
+    position: static;
+    background-size: cover;
+}
+.goodbye-message{
+    text-align: left;
+    font-size: 22px;
+    padding: 8rem 0 0 1.25rem;
+}
+
+/*донатъкмяване*/
+.title-intro{
+    margin: 2.5rem;
+    letter-spacing: 2px;
+}
+.col-centered{
+    margin:0 auto;
+    width:800px;
+}
+
+/*textareas*/
+.wrapper {
+    width:600px;
+    margin: 0 auto;
+}

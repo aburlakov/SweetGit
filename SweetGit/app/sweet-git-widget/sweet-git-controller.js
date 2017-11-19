@@ -13,14 +13,13 @@ angular.module("sweetGit", [])
                 });
             $http.get(GITHUB_API_URL + $scope.username + "/repos")
                 .then(function (response) {
-                   // var reposFound = response.data.length > 0;
-                   // var allStars = 0;
-                 //   if(reposFound){
-                 //      for(var repo in response.data.body){
-                 //          allStars += repo.stargazers_count;
-                 //      }
-                 //   }
-                    $scope.allStars = response.repos;
+                    var allStars = 0;
+                    for(var i = 0; i < response.data.length; i++) {
+                        var repo = response.data[i];
+
+                        allStars += repo.stargazers_count;
+                    }
+                   $scope.user.stars = allStars;
                 });
             }
         }

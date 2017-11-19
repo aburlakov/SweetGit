@@ -1,26 +1,26 @@
 /*fonts*/
 @font-face {
     font-family: 'Evolventa-Regular';
-    src: url("../fonts/Evolventa-Regular.ttf") format("opentype");
+    src: url("../../your-SweetGit/fonts/Evolventa-Regular.ttf") format("opentype");
 }
 
 @font-face {
     font-family: "that i love you";
-    src: url("../fonts/that i love you - TTF.ttf");
+    src: url("../../your-SweetGit/fonts/that i love you - TTF.ttf");
 }
 
 /*main html*/
 * {
     margin: 0;
     padding: 0;
+    font-family: "Evolventa-Regular", sans-serif;
 }
 html{
     height: 100%;
     min-height: 100%;
 }
-body {
+body, main {
     height: 100%;
-    overflow: scroll;
     font-family: "Evolventa-Regular", sans-serif;
 }
 html, body{
@@ -83,10 +83,8 @@ footer p{
 
 /*greeting screen*/
 .image-feature{
-    /*background: url("") no-repeat fixed;*/
-    height: 24rem;
-    position: static;
-    background-size: cover;
+    background: url("../images/me/my-photo.jpg") no-repeat fixed;
+
 }
 .greeting{
     color: #EFEFEF;
@@ -119,7 +117,7 @@ h2{
 .col-sm-3{
     bottom: -40px;
 }
-h4, h6{
+h4, h5, h6{
     bottom: -40px;
     text-align: center;
 }
@@ -146,7 +144,7 @@ h4, h6{
     text-align: center;
 }
 .fa-contact-screen{
-    color: white;
+    color: #1E1E1E;
     padding: 1rem;
     border-radius: 50%;
     transition: .3s all ease-in;
@@ -181,12 +179,18 @@ h4, h6{
     margin:0 auto;
     width:800px;
 }
-.link{
-    color: #585858;
+.funnyButton{
+    display: table;
+    margin: 0 auto;
 }
-.link:hover{
-    color: #989898;
-}
-.link:visited{
-    color: #D8D8D8;
+
+/* you are donkey, but I'm a bigger donkey*/
+input, button{
+    font-family: Evolventa-Regular;
+ }
+
+/*textareas*/
+.wrapper {
+    width:600px;
+    margin: 0 auto;
 }

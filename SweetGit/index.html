@@ -1,90 +1,108 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="sweetGit">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <title>Sweet Git</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+          crossorigin="anonymous">
+
+    <!-- normalize and custom styles-->
+    <link rel="stylesheet" href="app/beauty-part/styles/normalize.css">
     <link rel="stylesheet" href="app/beauty-part/styles/sweet-git-style.css" />
     <link rel="stylesheet" href="app/beauty-part/styles/style.css" />
+
+    <!--font-awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--scrolling nav-->
+    <link rel="stylesheet" href="app/gadgets/scrolling-nav/css/scrolling-nav.css">
+
+    <!--animate css-->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css"
+          integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
+          crossorigin="anonymous">
+
+    <!-- set things on fire-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="app/gadgets/scrolling-nav/vendor/jquery-easing/jquery.easing.min.js"></script>
+</head>  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+                 integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+                 crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
     <script src="app/bower_components/angular/angular.js"></script>
-    <script src="app/app.js"></script>
-    <script src="app/sweet-git-widget/sweet-git-controller.js"></script>
+
+    <script src="app/gadgets/scrolling-nav/js/scrolling-nav.js"></script>
 </head>
+<body>
+<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" id="nav-bar-ella">
 
-<body ng-controller="sweetGitController">
-
-<div id="sweetGit-widget">
-    <div class="col-center">
-        <h1>Let me give you a Sweet Git Widget</h1>
-        <h4>Write your GitHub username:</h4>
-
-        <div class="col-center">
-            <div class="form-group col-xs-4">
-                <input type="text" class="form-control" id="github-username" ng-model="username" placeholder="Github username...">
-            </div>
-
-            <button type="button" class="btn btn-default" ng-click="getGitInfo()">Give it to me</button>
-
-        </div>
-
-        <div id="github-api" class="clearfix"></div>
+    <!--collapse the nav-bar for small screens-->
+    <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">SweetGit<span class="hearts">*</span></a>
+        <button class="navbar-toggler navbar-toggler-right"
+                type="button"
+                data-toggle="collapse"
+                data-target="#nav-bar-items"
+                aria-controls="nav-bar-items"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
 
-    <!-- the actual place to generate sweet widget-->
-    <!--avatar, name and username, followers, following, repos count, stars find clever way-->
-    <!--todo: add button-->
-    <div class="col-center" ng-show="loaded">
-        <div class="container widget">
-            <div class="row github-profile">
-                <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row github-profile">
-                                <div class="col-xs-6 col-sm-6 col-md-6 separator profile-info">
-                                    <div class="profile-photo">
-                                        <img src="{{ user.avatar_url }}" class="img-responsive" alt="">
-                                    </div>
-
-                                    <div class="profile-names">
-                                        <div class="profile-username">
-                                            <span class="smallname">@<a href="{{user.html_url}}" target="_blank">{{user.login}}</a></span>
-                                        </div>
-                                        <div class="profile-fullname">
-                                            <p>{{user.name}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-right">
-                                    <i style="font-size:24px" class="fa text-right">&#xf09b;</i>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 profile-info">
-                                    <ul class="nav">
-                                        <li class="hovereffect text-right">
-                                            {{ user.followers }} followers
-                                        </li>
-                                        <li class="hovereffect text-right">
-                                            {{ user.following }} following
-                                        </li>
-                                        <li class="hovereffect text-right">
-                                            {{ user.allStars }} stars
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="signature">
-                                <p class="text-right center">by SweetGit<span class="hearts">*</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!--the actual nav-bar-->
+    <div class="collapse navbar-collapse justify-content-end" id="nav-bar-items">
+        <ul class="nav navbar-nav navbar-small">
+            <li class="nav-item"><a class="nav-link" href="index.html">home</a></li>
+            <li class="nav-item"><a class="nav-link" href="app/sweet-git-widget/sweet-git.html">widget</a></li>
+            <li class="nav-item"><a class="nav-link" target="_blank" href="http://github.com/mdamyanova">github</a></li>
+            <li class="nav-item"><a class="nav-link" href="mailto:mdamyanova181@gmail.com"><i class="fa fa-envelope-o" aria-hidden="false"></i></a></li>
+        </ul>
     </div>
+</nav>
+<main>
+<div class="title-intro animated fadeIn">
+    <h3>Well, hello stranger!</h3>
+    <h4>I'm <b>SweetGit</b>! A fancy-weird-geek widget, using your magnificent work in GitHub.</h4>
+    <h4>You can call me a helper for showing the world how cool you are!</h4>
+    <h5>So keep going, mate! (And come another time... like when you add another repository... or the stars you received are getting more!)</h5>
 </div>
+    <div class="githubCode">
+        <h6>In case you want to get to know each other better:</h6>
+        <a class="btn btn-secondary funnyButton" href="https://github.com/mdamyanova/SweetGit" target="_blank">my soul</a>
+    </div>
+    <!--social icons links-->
+    <div class="col">
+        <div class="social-icons">
+            <a class="fa-contact-screen" href="mailto:mdamyanova181@gmail.com">
+                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            </a>
+            <a class="fa-contact-screen" target="_blank" href="https://www.linkedin.com/in/mdamyanova">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a class="fa-contact-screen" target="_blank" href="https://github.com/mdamyanova">
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+            <a class="fa-contact-screen" target="_blank" href="https://www.facebook.com/mirela95">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a class="fa-contact-screen" target="_blank" href="http://instagram.com/mirelkabachkadosta">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a class="fa-contact-screen" target="_blank" href="https://www.pinterest.com/mdamyanova181">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+</main>
+<footer>
+    <p class="container-fluid"><b>SweetGit<span class="hearts">*</span></b>&copy;</p>
+</footer>
 </body>
 </html>
-<script src="app/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="app/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
