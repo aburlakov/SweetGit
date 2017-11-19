@@ -7,7 +7,7 @@
 The project is generating a widget depending on given GitHub username.
 Then you can see the user profile photo, username, full name, count of followers, following and stars received on public repositories.
 
-SweetGit is using the GitHub API for doing it's work. And... lets see what other things we have: 
+**SweetGit** is using the GitHub API for doing it's work. And... lets see what other things we have: 
 
 Languages and technologies:
 - JavaScript, jQuery, AngularJS
@@ -40,7 +40,7 @@ After that you can see the generated html code and take it. Or download zip file
 **SweetGit** is still a baby. It needs to dynamically load information, not a static one. We'll make that someday.
 
 ## Does this thing has a license?
-Actualy, it does. The really small project is under [MIT license](http://opensource.org/licenses/mit-license.php).
+Actually, it does. The really small project is under [MIT license](http://opensource.org/licenses/mit-license.php).
 
 ## Okay, it's nice.
 I knew it! Here's a sweety! Thanks for coming! 🥐🍯🍭🍬
